@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -12,18 +13,32 @@ export class ReactiveFormComponent implements OnInit {
 
   myForm: FormGroup;
   //public nombre: AbstractControl;
+  mailForm: AbstractControl;
+  newsletterForm: AbstractControl;
 
   constructor(private fb: FormBuilder
   ) {
     this.myForm = fb.group({
       'nombre': ['', Validators.required],
       'apellido': ['', Validators.required],
-      'mail': ['', Validators.email]
+      'mail': ['', [Validators.email] ],
+      'newsletter': ['']
     });
+    this.mailForm = this.myForm.controls.mail;
+    this.newsletterForm = this.myForm.controls.newsletter;
+    this.mailForm = new FormControl({value:"",disabled: true}, Validators.required);
     //this.nombre = this.myForm.controls['nombre'];
+    this.newsletterForm.valueChanges.subscribe( (value:boolean) => {
+      if(value){
+        this.mail.enable();
+      }else{
+        this.mail.disable();
+      }
+    })
   }
 
   ngOnInit() {
+    
   }
 
   get nombre(){
@@ -34,6 +49,9 @@ export class ReactiveFormComponent implements OnInit {
   }
   get mail(){
     return this.myForm.get('mail');
+  }
+  get newsletter(){
+    return this.myForm.get('newsletter');
   }
 
   public onSubmit(value){

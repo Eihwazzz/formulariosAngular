@@ -4,22 +4,28 @@
     <div class="form-group">
       <label for="nombre">Nombre</label>
       <br/>
-      <input type="text" name="nombre" [formControl]="myForm.controls['nombre']" class="form-control" id="nombre" required>
+      <input type="text" name="nombre" [formControl]="myForm.controls['nombre']" class="form-control" id="nombre">
       <div *ngIf="nombre.invalid && nombre.dirty" class="validacion-form">Debe ingresar un nombre</div>
     </div>
 
     <div class="form-group">
       <label for="apellido">Apellido</label>
       <br/>
-      <input type="text" name="apellido" [formControl]="myForm.controls['apellido']" class="form-control" id="apellido" required>
+      <input type="text" name="apellido" [formControl]="myForm.controls['apellido']" class="form-control" id="apellido">
       <div *ngIf="apellido.invalid && apellido.dirty" class="validacion-form">Debe ingresar un apellido</div>
     </div>
 
     <div class="form-group">
       <label for="mail">E-Mail</label>
       <br/>
-      <input type="email" name="mail" [formControl]="myForm.controls['mail']" class="form-control" id="mail" required>
+      <input type="email" name="mail" [formControl]="myForm.controls['mail']" class="form-control" id="mail">
       <div *ngIf="mail.invalid && mail.dirty" class="validacion-form">El formato del mail es incorrecto</div>
+    </div>
+
+    <div class="form-group">
+      <label for="newsletter">NewsLetter</label>
+      <br/>
+      <input type="checkbox" name="newsletter" [formControl]="myForm.controls['newsletter']" class="form-control" id="newsletter">
     </div>
 
     <button type="submit" class="btn btn-success">Enviar</button>
