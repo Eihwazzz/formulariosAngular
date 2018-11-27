@@ -1,0 +1,37 @@
+Rxjs
+
+Observables con datos existentes
+
+-of
+source = of(1,2,3,4,5)
+soruce = of<number>(,2,3,4,5)
+
+-from (?,promesas,array)
+
+
+1 suscriptor para cada observable
+y 1 instancia para cada (?)
+
+
+Operators
+Se pueden crear (RxJS tiene mas de 100)
+funcion que recibe una funcion como parametro y devuelve otra
+Esa funcion devuelta recibe un observable como parametro y devuelve un nuevo observable a la salida.
+
+let source$ = of(1,2,3,4,5);
+let doubler = map(value => value * 2);
+let doubled$ = doubler(source$);//2,4,6,8,10
+
+marble diagrams
+
+pagina RxJSmarbles.com
+wich operator to use
+
+Subjects -> Observers que pueden operar como observables
+Tiene next,error, complete + subscribe() y una lista de observers[]
+
+
+cold observable - hot observable
+
+--- Trabajo practico vamos a trabajar con la lista de alumnos inscriptos
+anterior = agregarle estados y mensajes de error al formulario.
