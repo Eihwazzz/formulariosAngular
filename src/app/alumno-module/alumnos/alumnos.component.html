@@ -1,0 +1,23 @@
+
+  <ul>
+    <li *ngFor="let curso of cursos">
+      <p>Id: {{curso.id}}</p>
+      <p>Titulo: {{curso.titulo}}</p>
+      <p>Fecha inicio: {{curso.fechaInicio | date}}</p>
+      <p>Fecha fin: {{curso.fechaFin | date}}</p>
+      <h4>Asistentes:</h4>
+      <ul>
+        <li *ngFor="let asistente of curso.asistentes">
+          <p>{{asistente}}</p>
+        </li>
+      </ul>
+      <div>
+          <h4>Profesor</h4>
+          <p>{{curso.profesor.id}}</p>
+          <p>{{curso.profesor.nombre}}</p>
+          <p>{{curso.profesor.apellido}}</p>
+      </div>
+      <p>Laboratorio: {{curso.laboratorio}}</p>
+      <p>Estado: {{curso.estado}}</p>
+    </li>
+  </ul>
