@@ -1,0 +1,11 @@
+modificacion en tiempo real a traves de input/output
+por ej foto en un componente, se actualiza en el listado y en la ficha
+
+
+<html>
+	<app-head>
+	</app-head>
+	<app-list>
+	</app-list>
+</html>
+	
